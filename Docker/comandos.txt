@@ -1,0 +1,3 @@
+docker build ./dockerfile -t tfg-15-v2
+docker run -it --user $UID:$GID --name tfg --gpus all -it  -v ../Data:/TecoGan/Data tfg-15-v2
+docker start tfg

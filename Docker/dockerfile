@@ -1,0 +1,9 @@
+FROM tensorflow/tensorflow:1.15.5-gpu-py3
+RUN rm /etc/apt/sources.list.d/cuda.list
+RUN rm /etc/apt/sources.list.d/nvidia-ml.list
+RUN apt-get update -y
+RUN apt-get install libgl1 -y
+COPY ./TecoGan /TecoGan
+RUN pip install -r /TecoGan/requirements.txt
+RUN pip install --upgrade tf_slim
+WORKDIR '/TecoGan'
